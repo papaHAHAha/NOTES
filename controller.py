@@ -1,8 +1,6 @@
-from  view import menu, list_notes, print_msg, input_title_note, input_return
+from view import menu, list_notes, print_msg, input_new_note, input_return
 import model
 from view import text
-
-
 
 
 def start():
@@ -15,17 +13,17 @@ def start():
             case 2:
                 list_notes(model.notes)
             case 3:
-                print_msg(text.input_new_note)
-                title = input_title_note(text.new_title_note)
-                body = input_title_note(text.new_body_note)
+                print_msg(text.input_info_note)
+                title = input_new_note(text.new_title_note)
+                body = input_new_note(text.new_body_note)
                 model.create_note(title, body)
                 model.save_notes()
-                print_msg(text.note_added)
+                print_msg(text.note_added(title))
             case 4:
                 list_notes(model.notes)
                 index = input_return(text.input_change_index)
-                new_title = input_title_note(text.new_title_note)
-                new_body = input_title_note(text.new_body_note)
+                new_title = input_new_note(text.new_title_note)
+                new_body = input_new_note(text.new_body_note)
                 if model.edit_note(index, new_title, new_body):
                     model.save_notes()
                     print_msg(text.note_changed)

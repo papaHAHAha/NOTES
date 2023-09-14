@@ -30,14 +30,9 @@ def list_notes(notes):
             print("-" * 30)
 
 
-def input_title_note(msg: str):
-    print(msg)
-    new = input()
+def input_new_note(msg: str):
+    new = str(input(msg))
     return new
-
-def input_body_note(msg: str):
-    print(msg)
-    body = input(new_body_note)
 
 def input_return(msg: str):
     return input(msg)

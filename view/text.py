@@ -10,21 +10,23 @@ main_menu = '''Главное меню
 open_successful = 'Файл открыт'
 
 menu_choice = 'Выберите пункт меню: '
-input_error = 'Некорректный ввод. Введите от 1 до 5'
+input_error = 'Некорректный ввод. Введите от 1 до 6'
 notes_error = 'Нет заметок.'
 note_ID_error = 'Заметка с указанным ID не найдена.'
 
 
 goodbye_message = 'Удачи, всего хорошего'
 
-input_new_note = 'Введите данные новой заметки'
+input_info_note = 'Введите данные новой заметки'
 new_title_note = 'Введите новый заголовок: '
 new_body_note = 'Введите новое тело: '
 
 input_change_index = 'Введите индекс изменяемой заметки: '
 input_del_index = 'Введите индекс удаляемой заметки: '
-input_change_note = 'Введите данные изменяемой заметки или Enter? чтоб оставить без изменений: '
 
-note_added = 'Заметка создана.'
+def note_added(title: str):
+   return f'Заметка {title} создана.'
+
 note_changed = 'Заметка изменена.'
+
 note_deleted = 'Заметка удалена.'
