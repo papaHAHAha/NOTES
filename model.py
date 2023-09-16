@@ -5,13 +5,21 @@ from datetime import datetime
 notes = []
 path = 'notes.json'
 
+import json
+import os
+from datetime import datetime
+
+notes = []
+path = 'notes.json'
+
 def load_notes():
     if os.path.exists(path):
         with open(path, 'r') as file:
             data = json.load(file)
-            for item in data:
-                notes.append(item)
+            notes.clear()
+            notes.extend(sorted(data, key=lambda x: datetime.strptime(x['created_at'], "%Y-%m-%d %H:%M:%S"), reverse=True))
     return notes
+
 
 def save_notes():
     with open(path, 'w') as file:
@@ -39,6 +47,18 @@ def edit_note(index: str, new_title, new_body):
             note['title'] = new_title
             note['body'] = new_body
             note['updated_at'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            return True
+    return False
+
+def view_selected_note(index: str, notes):
+    index = int(index)
+    for note in notes:
+        if note['note_id'] == index:
+            print(f"ID: {note['note_id']}")
+            print(f"Заголовок: {note['title']}")
+            print(f"Тело: {note['body']}")
+            print(f"Создано: {note['created_at']}")
+            print(f"Обновлено: {note['updated_at']}")
             return True
     return False
 

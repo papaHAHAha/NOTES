@@ -5,7 +5,7 @@ def menu() -> int:
     print(main_menu)
     while True:
         choice = input(menu_choice)
-        if choice.isdigit() and 0 < int(choice) < 7:
+        if choice.isdigit() and 0 < int(choice) < 8:
             return int(choice)
         print(input_error)
 
@@ -24,10 +24,10 @@ def list_notes(notes):
         for note in notes:
             print(f"ID: {note['note_id']}")
             print(f"Заголовок: {note['title']}")
-            print(f"Тело: {note['body']}")
             print(f"Создано: {note['created_at']}")
             print(f"Обновлено: {note['updated_at']}")
             print("-" * 30)
+
 
 
 def input_new_note(msg: str):

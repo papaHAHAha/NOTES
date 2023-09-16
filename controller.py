@@ -13,13 +13,20 @@ def start():
             case 2:
                 list_notes(model.notes)
             case 3:
+                list_notes(model.notes)
+                index = input_return(text.input_select_index)
+                if model.view_selected_note(index, model.notes):
+                    print("-" * 30)
+                else:
+                    print_msg(text.note_ID_error)
+            case 4:
                 print_msg(text.input_info_note)
                 title = input_new_note(text.new_title_note)
                 body = input_new_note(text.new_body_note)
                 model.create_note(title, body)
                 model.save_notes()
                 print_msg(text.note_added(title))
-            case 4:
+            case 5:
                 list_notes(model.notes)
                 index = input_return(text.input_change_index)
                 new_title = input_new_note(text.new_title_note)
@@ -29,7 +36,7 @@ def start():
                     print_msg(text.note_changed)
                 else:
                     print_msg(text.note_ID_error)
-            case 5:
+            case 6:
                 list_notes(model.notes)
                 index = input_return(text.input_del_index)
                 if model.delete_note(index):
@@ -37,6 +44,6 @@ def start():
                     print_msg(text.note_deleted)
                 else:
                     print_msg(text.note_ID_error)
-            case 6:
+            case 7:
                 print_msg(text.goodbye_message)
                 break
